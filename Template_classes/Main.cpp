@@ -1,24 +1,24 @@
-# include <iostream>
+п»ї# include <iostream>
 # include"MathOperator.hpp"
 
 int main() {
 	const MathOperator<float> f(1., 2.);
 	std::cout << f.Summ() << '\n';
-	// f.SetLeft(6) вызвать метод невозможно из-за const
+	// f.SetLeft(6) РІС‹Р·РІР°С‚СЊ РјРµС‚РѕРґ РЅРµРІРѕР·РјРѕР¶РЅРѕ РёР·-Р·Р° const
 
 	MathOperator<float> f2(1.5, 2.9);
 	std::cout << f2.Summ() << '\n';
 
 	f2.SetRight(f2.GetRight() + 1);
-	std::cout << f2.GetLeft() << '+' << f2.GetRight() << '=' << f2.Summ() << "\n"; // Созданные объекты
-	// При работе с шаблонными классами нет запретов на использование анонимных объектов
-	std::cout << 4 << '*' << 9 << '=' << MathOperator<int>(4,9).Multiply() << "\n"; // Анонимный объект шаблонного класса типа int 
+	std::cout << f2.GetLeft() << '+' << f2.GetRight() << '=' << f2.Summ() << "\n"; // РЎРѕР·РґР°РЅРЅС‹Рµ РѕР±СЉРµРєС‚С‹
+	// РџСЂРё СЂР°Р±РѕС‚Рµ СЃ С€Р°Р±Р»РѕРЅРЅС‹РјРё РєР»Р°СЃСЃР°РјРё РЅРµС‚ Р·Р°РїСЂРµС‚РѕРІ РЅР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р°РЅРѕРЅРёРјРЅС‹С… РѕР±СЉРµРєС‚РѕРІ
+	std::cout << 4 << '*' << 9 << '=' << MathOperator<int>(4,9).Multiply() << "\n"; // РђРЅРѕРЅРёРјРЅС‹Р№ РѕР±СЉРµРєС‚ С€Р°Р±Р»РѕРЅРЅРѕРіРѕ РєР»Р°СЃСЃР° С‚РёРїР° int 
 	
 	PrintSumm(MathOperator<int>(4, 9));
 
 	const MathOperator<int> int_m(1, 54);
 	PrintSumm(int_m);
-	// PrintSumm(f2); невозможно, т.к. в функции упомянута конкретная реализация
+	// PrintSumm(f2); РЅРµРІРѕР·РјРѕР¶РЅРѕ, С‚.Рє. РІ С„СѓРЅРєС†РёРё СѓРїРѕРјСЏРЅСѓС‚Р° РєРѕРЅРєСЂРµС‚РЅР°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ
 
 	PrintMultiply(f);
 	PrintMultiply(int_m);
